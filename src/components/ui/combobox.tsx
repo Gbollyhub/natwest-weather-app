@@ -59,7 +59,10 @@ function ComboboxEmpty({ className, ...props }: ComboboxPrimitive.Empty.Props) {
   return (
     <ComboboxPrimitive.Empty
       data-slot="combobox-empty"
-      className={cn("px-3 py-6 text-center text-sm text-muted-foreground", className)}
+      className={cn(
+        "text-center text-sm text-muted-foreground [&:not(:empty)]:px-3 [&:not(:empty)]:py-6",
+        className
+      )}
       {...props}
     />
   );
