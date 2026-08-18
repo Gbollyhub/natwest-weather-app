@@ -7,7 +7,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-sans);
+  --font-sans: var(--font-poppins);
   --font-mono: var(--font-geist-mono);
   --font-heading: var(--font-sans);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -117,6 +117,32 @@
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+@theme {
+  --color-weather-ink: #1d1d1a;
+  --color-weather-ink-2: #3a3a35;
+  --color-weather-ink-3: #55534d;
+  --color-weather-muted: #8a8880;
+  --color-weather-hairline: rgba(29, 29, 26, 0.1);
+  --color-weather-amber: #f0ad33;
+  --color-weather-amber-lift: #fbd45f;
+  --color-weather-amber-dark: #a97c12;
+  --color-weather-daypart: #c2bbac;
+}
+
+@layer utilities {
+  .weather-app-bg {
+    background: linear-gradient(158deg, #f8dc8b 0%, #efb93f 55%, #e7a51c 100%);
+  }
+
+  .weather-shell-bg {
+    background:
+      radial-gradient(115% 85% at 100% 0%, #cfe8f2 0%, rgba(207, 232, 242, 0) 58%),
+      radial-gradient(95% 85% at 108% 68%, #f8e0ad 0%, rgba(248, 224, 173, 0) 62%),
+      radial-gradient(80% 70% at 4% 104%, #fbf0d9 0%, rgba(251, 240, 217, 0) 62%),
+      #fcfbf7;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -124,7 +150,11 @@
   body {
     @apply bg-background text-foreground;
   }
-  html {
-    @apply font-sans;
+
+  .weather a:focus-visible,
+  .weather button:focus-visible {
+    outline: 2px solid #b47f0d;
+    outline-offset: 3px;
+    border-radius: 4px;
   }
 }
