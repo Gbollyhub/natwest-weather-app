@@ -1,8 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import { LocateFixed, Search } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 import {
   Combobox,
@@ -14,31 +12,45 @@ import {
   ComboboxPopup,
 } from "@/components/ui/combobox";
 import type { LocationOption } from "@/types";
+import useLocationSearch from "@/hooks/useLocationSearch";
 
 const LOCATION_INPUT_ID = "weather-location-search";
 
-export function LocationSearchForm({ suggestions }: { suggestions: LocationOption[] }) {
-  const [value, setValue] = useState<LocationOption | null>(null);
+export function LocationSearchForm() {
+  const { location, setLocation, searchValue, setSearchValue, suggestions } =
+    useLocationSearch();
 
   return (
     <form
       className="flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:items-center"
       onSubmit={(event) => event.preventDefault()}
     >
-      <Combobox items={suggestions} value={value} onValueChange={setValue}>
+      <Combobox
+        items={suggestions}
+        value={location}
+        onValueChange={setLocation}
+        inputValue={searchValue}
+        onInputValueChange={setSearchValue}
+      >
         <label htmlFor={LOCATION_INPUT_ID} className="sr-only">
           Search for a city or country
         </label>
         <ComboboxInputGroup className="sm:flex-1">
-          <Search className="size-4 shrink-0 text-weather-muted" aria-hidden="true" />
-          <ComboboxInput id={LOCATION_INPUT_ID} placeholder="Search city or country" />
+          <Search
+            className="size-4 shrink-0 text-weather-muted"
+            aria-hidden="true"
+          />
+          <ComboboxInput
+            id={LOCATION_INPUT_ID}
+            placeholder="Search city or country"
+          />
         </ComboboxInputGroup>
         <ComboboxPopup>
           <ComboboxEmpty>No matching locations.</ComboboxEmpty>
           <ComboboxList>
             {(item: LocationOption) => (
-              <ComboboxItem key={item} value={item}>
-                {item}
+              <ComboboxItem key={item.id} value={`${item.name} ${item.region} ${item.country}`}>
+                {item.name}, {item.region}, {item.country}
               </ComboboxItem>
             )}
           </ComboboxList>
