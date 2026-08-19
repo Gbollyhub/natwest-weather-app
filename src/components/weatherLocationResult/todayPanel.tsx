@@ -1,30 +1,28 @@
-import type { LocationSummary } from "@/types";
-import type { FeelsLike, SunTimes, WeatherMetric } from "./types";
+import type { WeatherMetric } from "./types";
 import { MetricsGrid } from "./metricsGrid";
-import { SunPathArc } from "./sunPathArc";
+import useForecast from "@/hooks/useForecast";
 
-interface TodayPanelProps {
-  location: LocationSummary;
-  feelsLike: FeelsLike;
-  sunTimes: SunTimes;
-  metrics: WeatherMetric[];
-}
+export function TodayPanel() {
+  const { forecast } = useForecast();
 
-export function TodayPanel({ location, feelsLike, sunTimes, metrics }: TodayPanelProps) {
+  if (!forecast) return null;
+
+  const metrics: WeatherMetric[] = [
+    { icon: "wind", label: "Gust", value: `${forecast.current.gust_kph}km/h` },
+    { icon: "wind", label: "Wind", value: `${forecast.current.wind_kph}km/h` },
+    { icon: "humidity", label: "Humidity", value: `${forecast.current.humidity}%` },
+    { icon: "dewPoint", label: "Dew Point", value: `${Math.round(forecast.current.dewpoint_c)}°` },
+    { icon: "pressure", label: "Pressure", value: `${forecast.current.pressure_mb} mb` },
+    { icon: "uvIndex", label: "UV Index", value: `${forecast.current.uv}` },
+    { icon: "visibility", label: "Visibility", value: `${forecast.current.vis_km} km` },
+    { icon: "humidity", label: "Precipitation", value: `${forecast.current.precip_mm} mm` },
+  ];
+
   return (
     <section className="mt-8" aria-labelledby="weather-today-heading">
-      <h2 id="weather-today-heading" className="text-[13.5px] font-semibold">
-        Weather today in {location.city}, {location.country}
+      <h2 id="weather-today-heading" className="text-[16px] font-semibold">
+        More weather information
       </h2>
-
-      <div className="mt-5 flex items-start justify-between">
-        <div>
-          <p className="text-[38px] leading-none font-semibold tracking-[-0.01em]">{feelsLike.temperature}</p>
-          <p className="mt-2 text-[10px] text-weather-muted">{feelsLike.label}</p>
-        </div>
-        <SunPathArc sunrise={sunTimes.sunrise} sunset={sunTimes.sunset} />
-      </div>
-
       <MetricsGrid metrics={metrics} />
     </section>
   );

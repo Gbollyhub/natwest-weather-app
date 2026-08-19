@@ -1,11 +1,11 @@
 import { LocationOption } from "@/types";
 import axios from "axios";
 
-export const searchLocation = async (location: string) => {
+export const searchLocation = async (searchValue: string) => {
   const { data } = await axios.get<LocationOption[]>("/api/location-search", {
     params: {
-        location
-    }
+      searchValue,
+    },
   });
 
   return data;

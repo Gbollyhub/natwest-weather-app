@@ -16,9 +16,19 @@ import useLocationSearch from "@/hooks/useLocationSearch";
 
 const LOCATION_INPUT_ID = "weather-location-search";
 
+function formatLocationLabel(item: LocationOption): string {
+  return `${item.name}, ${item.region}, ${item.country}`;
+}
+
 export function LocationSearchForm() {
-  const { location, setLocation, searchValue, setSearchValue, suggestions } =
-    useLocationSearch();
+  const {
+    location,
+    setLocation,
+    searchValue,
+    setSearchValue,
+    suggestions,
+    handleLocationSelect,
+  } = useLocationSearch();
 
   return (
     <form
@@ -28,9 +38,10 @@ export function LocationSearchForm() {
       <Combobox
         items={suggestions}
         value={location}
-        onValueChange={setLocation}
+        onValueChange={handleLocationSelect}
         inputValue={searchValue}
         onInputValueChange={setSearchValue}
+        itemToStringLabel={formatLocationLabel}
       >
         <label htmlFor={LOCATION_INPUT_ID} className="sr-only">
           Search for a city or country
@@ -49,8 +60,8 @@ export function LocationSearchForm() {
           <ComboboxEmpty>No matching locations.</ComboboxEmpty>
           <ComboboxList>
             {(item: LocationOption) => (
-              <ComboboxItem key={item.id} value={`${item.name} ${item.region} ${item.country}`}>
-                {item.name}, {item.region}, {item.country}
+              <ComboboxItem key={item.id} value={item}>
+                {formatLocationLabel(item)}
               </ComboboxItem>
             )}
           </ComboboxList>

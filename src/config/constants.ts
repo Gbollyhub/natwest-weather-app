@@ -1,4 +1,4 @@
-import type { LocationOption, LocationSummary } from "@/types";
+import type { LocationSummary } from "@/types";
 
 export const NAV_ITEMS: string[] = ["Today", "Hourly", "10-Day", "Weekend", "Monthly", "Radar"];
 
@@ -15,17 +15,4 @@ export const GREETINGS: string[] = [
   "Good to see you",
   "Hiya",
   "Howdy",
-];
-
-export const LOCATION_SUGGESTIONS: LocationOption[] = [
-  "Amsterdam, Netherlands",
-  "London, United Kingdom",
-  "New York, United States",
-  "Paris, France",
-  "Berlin, Germany",
-  "Tokyo, Japan",
-  "Sydney, Australia",
-  "Cape Town, South Africa",
-  "Dubai, United Arab Emirates",
-  "Toronto, Canada",
 ];

@@ -1,5 +1,5 @@
 import { WeatherShell } from "@/components/common/weatherShell";
-import { WeatherLandingHero } from "./weatherLandingHero";
+import { WeatherLandingHero } from "./weatherLandingPageHero";
 
 export function WeatherLanding() {
   return (

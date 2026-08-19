@@ -4,7 +4,7 @@ export function SkyArtwork({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "mx-0 mb-2 max-w-[520px] lg:mt-[-34px] lg:mr-[-70px] lg:mb-0 lg:ml-[-110px] lg:max-w-none",
+        "mx-0 mb-2 max-w-[520px] lg:mt-[5px] lg:mr-[-70px] lg:mb-0 lg:ml-[-110px] lg:max-w-none",
         className
       )}
       aria-hidden="true"

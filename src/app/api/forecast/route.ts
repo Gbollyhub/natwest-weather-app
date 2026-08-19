@@ -5,12 +5,15 @@ const API_KEY = process.env.NEXT_WEATHER_API_KEY;
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const searchValue = searchParams.get("searchValue");
+  const location = searchParams.get("location");
 
-  const { data } = await api.get("/search.json", {
+  const { data } = await api.get("/forecast.json", {
     params: {
       key: API_KEY,
-      q: searchValue,
+      q: location,
+      days: 3,
+      aqi: "no",
+      alerts: "no",
     },
   });
   return NextResponse.json(data);
