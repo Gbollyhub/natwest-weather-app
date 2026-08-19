@@ -1,10 +1,14 @@
-import type { WeatherMetric } from "./types";
-import { MetricsGrid } from "./metricsGrid";
+import type { CurrentWeather, WeatherMetric } from "@/types";
+import { MetricsGrid } from "./MetricsGrid";
 import useForecast from "@/hooks/useForecast";
 import { formatTemperature } from "@/lib/temperature";
 import { useTemperatureUnit } from "@/context/temperatureUnitContext";
 
-export function TodayPanel() {
+interface Props {
+  current: CurrentWeather;
+}
+
+export function TodayPanel({current}: Props) {
   const { forecast } = useForecast();
   const { unit } = useTemperatureUnit();
 

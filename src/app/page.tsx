@@ -1,5 +1,10 @@
-import { WeatherLanding } from "@/components/weatherLandingPage/weatherLandingPage";
+import { WeatherShell } from "@/components/layout/WeatherShell";
+import { WeatherLandingHero } from "@/components/features/landing/WeatherLandingPageHero";
 
-export default function Home() {
-  return <WeatherLanding />;
+export function WeatherLanding() {
+  return (
+    <WeatherShell>
+      <WeatherLandingHero />
+    </WeatherShell>
+  );
 }

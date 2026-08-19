@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { classifyCondition, type SceneKey } from "./classifyCondition";
+import { classifyCondition, type SceneKey } from "./ClassifyCondition";
 import {
   ClearScene,
   CloudyScene,
@@ -9,7 +9,7 @@ import {
   SnowScene,
   ThunderstormScene,
   type SceneProps,
-} from "./scenes";
+} from "./Scenes";
 
 const SCENE_BY_KEY: Record<SceneKey, ComponentType<SceneProps>> = {
   clear: ClearScene,

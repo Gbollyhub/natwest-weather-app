@@ -2,9 +2,15 @@
 
 import Image from "next/image";
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/Card";
 import useForecast from "@/hooks/useForecast";
-import type { ForecastDay } from "@/types";
+import type { ForecastData, ForecastDay } from "@/types";
 import { celsiusToFahrenheit } from "@/lib/temperature";
 import { useTemperatureUnit } from "@/context/temperatureUnitContext";
 
@@ -25,10 +31,13 @@ interface DayRange {
   max: number;
 }
 
-export function DailyForecastCard() {
-  const { forecast } = useForecast();
+interface Props {
+  forecast: ForecastData;
+}
+
+export function DailyForecastCard({ forecast }: Props) {
   const { unit } = useTemperatureUnit();
-  const days = forecast?.forecast.forecastday;
+  const days = forecast.forecastday;
 
   if (!days || days.length === 0) return null;
 
@@ -50,7 +59,9 @@ export function DailyForecastCard() {
     <Card className="bg-card/10">
       <CardHeader>
         <CardTitle className="text-weather-ink">Daily Forecast</CardTitle>
-        <CardDescription className="text-[12px] text-weather-muted">{ranges.length}-day outlook</CardDescription>
+        <CardDescription className="text-[12px] text-weather-muted">
+          {ranges.length}-day outlook
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {ranges.map(({ day, label, min, max }) => {
@@ -59,7 +70,9 @@ export function DailyForecastCard() {
 
           return (
             <div key={day.date} className="flex items-center gap-2 sm:gap-4">
-              <span className="w-9 shrink-0 text-sm font-medium text-weather-ink-2 sm:w-12">{label}</span>
+              <span className="w-9 shrink-0 text-sm font-medium text-weather-ink-2 sm:w-12">
+                {label}
+              </span>
 
               <Image
                 src={toAbsoluteIconUrl(day.day.condition.icon)}
@@ -67,18 +80,25 @@ export function DailyForecastCard() {
                 width={32}
                 height={32}
                 className="size-7 shrink-0 sm:size-8"
-              />  
+              />
 
-              <span className="w-6 shrink-0 text-right text-sm text-weather-muted tabular-nums">{min}°</span>
+              <span className="w-6 shrink-0 text-right text-sm text-weather-muted tabular-nums">
+                {min}°
+              </span>
 
               <div className="relative h-1.5 min-w-0 flex-1 rounded-full bg-weather-hairline">
                 <div
                   className="absolute inset-y-0 rounded-full bg-gradient-to-r from-weather-amber-lift to-weather-amber"
-                  style={{ left: `${offsetPercent}%`, width: `${widthPercent}%` }}
+                  style={{
+                    left: `${offsetPercent}%`,
+                    width: `${widthPercent}%`,
+                  }}
                 />
               </div>
 
-              <span className="w-6 shrink-0 text-sm font-semibold text-weather-ink tabular-nums">{max}°</span>
+              <span className="w-6 shrink-0 text-sm font-semibold text-weather-ink tabular-nums">
+                {max}°
+              </span>
             </div>
           );
         })}

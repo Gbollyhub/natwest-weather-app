@@ -7,7 +7,7 @@ import {
   SecondaryCloudShape,
   SnowFlecks,
   StarField,
-} from "./primitives";
+} from "./Primitives";
 
 export interface SceneProps {
   isDay: boolean;

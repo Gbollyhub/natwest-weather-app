@@ -2,9 +2,9 @@
 
 import { CloudAlert, RefreshCw } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/Button";
 
-export function WeatherLocationResultError({ onRetry }: { onRetry: () => void }) {
+export function ForecastError({ onRetry }: { onRetry: () => void }) {
   return (
     <div className="flex flex-1 flex-col items-center justify-center gap-4 py-16 text-center">
       <CloudAlert className="size-12 text-weather-amber" aria-hidden="true" />

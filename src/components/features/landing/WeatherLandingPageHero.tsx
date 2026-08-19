@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { GREETINGS } from "@/config/constants";
-import { GreetingSection } from "./greetingSection";
-import { LocationSearchForm } from "./locationSearchForm";
+import { GreetingSection } from "./GreetingSection";
+import { LocationSearchForm } from "./LocationSearchForm";
 
 export function WeatherLandingHero() {
   const [greeting] = useState(

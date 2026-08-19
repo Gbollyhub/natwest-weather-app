@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
-import { SkyDefs } from "./weatherArt/defs";
-import { WeatherScene } from "./weatherArt/weatherScene";
+import { SkyDefs } from "./WeatherArt/Defs";
+import { WeatherScene } from "./WeatherArt/WeatherScene";
 
 interface SkyArtworkProps {
   className?: string;

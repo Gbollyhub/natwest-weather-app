@@ -1,5 +1,5 @@
-import type { WeatherMetric } from "./types";
-import { MetricGlyph } from "./icons";
+import type { WeatherMetric } from "@/types";
+import { MetricGlyph } from "./Icons";
 
 export function MetricsGrid({ metrics }: { metrics: WeatherMetric[] | null }) {
   return (

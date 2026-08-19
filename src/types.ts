@@ -75,3 +75,22 @@ export type Forecast = {
   current: CurrentWeather;
   forecast: ForecastData;
 };
+
+export type DaypartIconKind = "sun" | "partly" | "cloud" | "moon";
+
+export type MetricGlyphName =
+  | "highLow"
+  | "wind"
+  | "humidity"
+  | "dewPoint"
+  | "pressure"
+  | "uvIndex"
+  | "visibility"
+  | "moonPhase";
+
+export interface WeatherMetric {
+  icon: MetricGlyphName;
+  label: string;
+  value: string;
+}
+

@@ -1,12 +1,12 @@
-import { Card, CardContent, CardHeader } from "@/components/ui/card";
-import { Skeleton } from "@/components/ui/skeleton";
+import { Card, CardContent, CardHeader } from "@/components/ui/Card";
+import { Skeleton } from "@/components/ui/Skeleton";
 import { cn } from "@/lib/utils";
 
 function Bone({ className }: { className?: string }) {
   return <Skeleton className={cn("bg-weather-ink/10", className)} />;
 }
 
-export function WeatherLocationResultSkeleton() {
+export function ForecastSkeleton() {
   return (
     <>
       <main

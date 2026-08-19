@@ -9,7 +9,7 @@ import {
   Wind,
   type LucideIcon,
 } from "lucide-react";
-import type { MetricGlyphName } from "./types";
+import type { MetricGlyphName } from "@/types";
 
 const METRIC_ICON: Record<MetricGlyphName, LucideIcon> = {
   highLow: Thermometer,
