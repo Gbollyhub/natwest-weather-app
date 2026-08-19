@@ -22,6 +22,19 @@ function useLocationSearch() {
     router.push(`/weather?lat=${value.lat}&lon=${value.lon}`);
   };
 
+  const locateUserFunc = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const { latitude, longitude } = position.coords;
+
+        router.push(`/weather?lat=${latitude}&lon=${longitude}`);
+      },
+      (error) => {
+        console.error(error);
+      },
+    );
+  };
+
   return {
     location,
     setLocation,
@@ -32,6 +45,7 @@ function useLocationSearch() {
     isError,
     handleLocationSelect,
     debouncedLocationSearch,
+    locateUserFunc,
   };
 }
 

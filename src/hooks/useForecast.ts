@@ -1,7 +1,7 @@
 "use client";
 
 import { getForecast } from "@/services/forecast";
-import { useQuery } from "@tanstack/react-query";
+import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import { useSearchParams } from "next/navigation";
 import { isToday } from "date-fns";
 
@@ -15,6 +15,7 @@ function useForecast() {
     queryFn: () => getForecast(lat!, lon!),
     enabled: Boolean(lat && lon),
     staleTime: 5 * 60 * 1000,
+    placeholderData: keepPreviousData,
   });
 
   const todayHourlyForcast = data?.forecast.forecastday.find(x => {

@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/combobox";
 import type { LocationOption } from "@/types";
 import useLocationSearch from "@/hooks/useLocationSearch";
+import { cn } from "@/lib/utils";
 
 const LOCATION_INPUT_ID = "weather-location-search";
 
@@ -20,7 +21,7 @@ function formatLocationLabel(item: LocationOption): string {
   return `${item.name}, ${item.region}, ${item.country}`;
 }
 
-export function LocationSearchForm() {
+export function LocationSearchForm({ className }: { className?: string }) {
   const {
     location,
     searchValue,
@@ -30,11 +31,15 @@ export function LocationSearchForm() {
     isError,
     isPending,
     debouncedLocationSearch,
+    locateUserFunc,
   } = useLocationSearch();
 
   return (
     <form
-      className="flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:items-center"
+      className={cn(
+        "flex w-full max-w-xl flex-col items-stretch gap-3 sm:flex-row sm:items-center",
+        className,
+      )}
       onSubmit={(event) => event.preventDefault()}
     >
       <Combobox
@@ -77,6 +82,7 @@ export function LocationSearchForm() {
       </Combobox>
 
       <Button
+        onClick={locateUserFunc}
         type="button"
         className="h-auto shrink-0 gap-2 rounded-md bg-weather-amber px-6 py-3 text-white hover:bg-weather-amber/90"
       >

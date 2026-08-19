@@ -1,18 +1,39 @@
 import type { ReactNode } from "react";
-import { LOCATION, NAV_ITEMS } from "@/config/constants";
-import type { LocationSummary } from "@/types";
+import { NAV_ITEMS } from "@/config/constants";
+import { cn } from "@/lib/utils";
+import type { DayNightTheme } from "@/hooks/useDayNightTheme";
 import { SiteHeader } from "./siteHeader";
 
 interface WeatherShellProps {
-  location?: LocationSummary;
+  theme?: DayNightTheme;
   children: ReactNode;
 }
 
-export function WeatherShell({ location = LOCATION, children }: WeatherShellProps) {
+export function WeatherShell({ theme = "day", children }: WeatherShellProps) {
+  const isNight = theme === "night";
+
   return (
-    <div className="weather weather-app-bg min-h-screen p-2.5 text-weather-ink">
-      <div className="weather-shell-bg relative flex min-h-[calc(100vh-20px)] flex-col overflow-hidden rounded-[26px] pb-16 duration-500 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-1.5">
-        <div className="flex flex-1 flex-col px-[clamp(20px,7.4%,108px)]">
+    <div className={cn("weather relative min-h-screen p-2.5 text-weather-ink", isNight && "weather-night")}>
+      <div className="weather-app-bg absolute inset-0" aria-hidden="true" />
+      <div
+        className={cn(
+          "weather-app-bg-night absolute inset-0 transition-opacity duration-1000 ease-in-out",
+          isNight ? "opacity-100" : "opacity-0"
+        )}
+        aria-hidden="true"
+      />
+
+      <div className="relative flex min-h-[calc(100vh-20px)] flex-col overflow-hidden rounded-[26px] pb-16 duration-500 motion-safe:animate-in motion-safe:fade-in motion-safe:slide-in-from-bottom-1.5">
+        <div className="weather-shell-bg absolute inset-0" aria-hidden="true" />
+        <div
+          className={cn(
+            "weather-shell-bg-night absolute inset-0 transition-opacity duration-1000 ease-in-out",
+            isNight ? "opacity-100" : "opacity-0"
+          )}
+          aria-hidden="true"
+        />
+
+        <div className="relative flex flex-1 flex-col px-[clamp(20px,7.4%,108px)]">
           <SiteHeader navItems={NAV_ITEMS} />
           <div className="h-px bg-weather-hairline" />
           {children}

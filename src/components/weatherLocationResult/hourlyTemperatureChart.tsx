@@ -1,7 +1,6 @@
 "use client";
 
 import { CartesianGrid, Line, LineChart, XAxis, YAxis } from "recharts";
-
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from "@/components/ui/chart";
 import useForecast from "@/hooks/useForecast";
@@ -34,8 +33,8 @@ export function HourlyTemperatureChart() {
   return (
     <Card className="bg-card/10">
       <CardHeader>
-        <CardTitle>Hourly Temperature</CardTitle>
-        <CardDescription className="text-[12px]">Today, 00:00 – 23:00</CardDescription>
+        <CardTitle className="text-weather-ink">Hourly Temperature</CardTitle>
+        <CardDescription className="text-[12px] text-weather-muted">Today, 00:00 – 23:00</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer config={chartConfig} className="aspect-auto h-[200px] w-full sm:h-[250px] lg:h-[300px]">

@@ -141,6 +141,48 @@
       radial-gradient(80% 70% at 4% 104%, #fbf0d9 0%, rgba(251, 240, 217, 0) 62%),
       #fcfbf7;
   }
+
+  .weather-app-bg-night {
+    background: linear-gradient(158deg, #232c52 0%, #161b36 55%, #0c0f21 100%);
+  }
+
+  .weather-shell-bg-night {
+    background:
+      radial-gradient(115% 85% at 100% 0%, #2c3866 0%, rgba(44, 56, 102, 0) 58%),
+      radial-gradient(95% 85% at 108% 68%, #33244f 0%, rgba(51, 36, 79, 0) 62%),
+      radial-gradient(80% 70% at 4% 104%, #1a2038 0%, rgba(26, 32, 56, 0) 62%),
+      #0f1225;
+  }
+
+  .weather-float {
+    animation: weather-float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes weather-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-16px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .weather-float {
+    animation: none;
+  }
+}
+
+.weather-night {
+  --color-weather-ink: #f5f3ee;
+  --color-weather-ink-2: #d7d4cb;
+  --color-weather-ink-3: #aaa79d;
+  --color-weather-muted: #8f8c81;
+  --color-weather-hairline: rgba(245, 243, 238, 0.14);
+  --color-weather-amber-dark: #ffcf70;
+  --color-weather-daypart: #837e70;
 }
 
 @layer base {

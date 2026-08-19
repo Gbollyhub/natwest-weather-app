@@ -26,6 +26,7 @@ export type CurrentWeather = {
   temp_f: number;
   feelslike_c: number;
   feelslike_f: number;
+  is_day: number;
   condition: WeatherCondition;
   wind_kph: number;
   humidity: number;

@@ -1,8 +1,6 @@
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
-import { WeatherShell } from "@/components/common/weatherShell";
 import { cn } from "@/lib/utils";
-import { UtilityBar } from "../common/utilityBar";
 
 function Bone({ className }: { className?: string }) {
   return <Skeleton className={cn("bg-weather-ink/10", className)} />;
@@ -10,9 +8,7 @@ function Bone({ className }: { className?: string }) {
 
 export function WeatherLocationResultSkeleton() {
   return (
-    <WeatherShell>
-      <UtilityBar />
-
+    <>
       <main
         id="main"
         className="mt-[42px] flex flex-col gap-12 lg:flex-row lg:items-stretch lg:justify-between lg:gap-[clamp(40px,5vw,366px)]"
@@ -54,7 +50,7 @@ export function WeatherLocationResultSkeleton() {
           </section>
         </div>
 
-        <div className="contents lg:flex lg:w-full lg:flex-col lg:flex-[0_1_394px]">
+        <div className="hidden contents lg:flex lg:w-full lg:flex-col lg:flex-[0_1_394px]">
           <div className="order-1 mx-0 mb-2 max-w-[300px] lg:order-none lg:mt-[5px] lg:mr-[-70px] lg:mb-0 lg:ml-[-110px] lg:max-w-none">
             <Bone className="aspect-[620/470] w-full rounded-full" />
           </div>
@@ -92,6 +88,6 @@ export function WeatherLocationResultSkeleton() {
           </CardContent>
         </Card>
       </div>
-    </WeatherShell>
+    </>
   );
 }

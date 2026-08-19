@@ -1,0 +1,15 @@
+"use client";
+
+import { useMemo } from "react";
+import type { Forecast } from "@/types";
+
+export type DayNightTheme = "day" | "night";
+
+function useDayNightTheme(forecast: Forecast | undefined): DayNightTheme {
+  return useMemo(() => {
+    if (!forecast) return "day";
+    return forecast.current.is_day === 0 ? "night" : "day";
+  }, [forecast]);
+}
+
+export default useDayNightTheme;

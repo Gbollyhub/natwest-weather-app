@@ -49,8 +49,8 @@ export function DailyForecastCard() {
   return (
     <Card className="bg-card/10">
       <CardHeader>
-        <CardTitle>Daily Forecast</CardTitle>
-        <CardDescription className="text-[12px]">{ranges.length}-day outlook</CardDescription>
+        <CardTitle className="text-weather-ink">Daily Forecast</CardTitle>
+        <CardDescription className="text-[12px] text-weather-muted">{ranges.length}-day outlook</CardDescription>
       </CardHeader>
       <CardContent className="flex flex-col gap-4">
         {ranges.map(({ day, label, min, max }) => {
