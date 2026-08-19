@@ -1,6 +1,6 @@
 "use client";
 
-import { useTemperatureUnit } from "@/context/temperatureUnitContext";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 import { cn } from "@/lib/utils";
 import type { TemperatureUnit } from "@/lib/temperature";
 

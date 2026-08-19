@@ -7,15 +7,15 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/Card";
+} from "@/components/ui/card";
 import {
   ChartContainer,
   ChartTooltip,
   ChartTooltipContent,
   type ChartConfig,
-} from "@/components/ui/Chart";
+} from "@/components/ui/chart";
 import { celsiusToFahrenheit } from "@/lib/temperature";
-import { useTemperatureUnit } from "@/context/temperatureUnitContext";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 import { ForecastData } from "@/types";
 
 interface Props {

@@ -1,7 +1,7 @@
 "use client";
 
 import { LocateFixed, Search } from "lucide-react";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/ui/button";
 import {
   Combobox,
   ComboboxEmpty,
@@ -10,7 +10,7 @@ import {
   ComboboxItem,
   ComboboxList,
   ComboboxPopup,
-} from "@/components/ui/Combobox";
+} from "@/components/ui/combobox";
 import type { LocationOption } from "@/types";
 import useLocationSearch from "@/hooks/useLocationSearch";
 import { cn } from "@/lib/utils";

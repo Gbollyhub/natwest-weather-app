@@ -19,7 +19,7 @@ function useLocationSearch() {
 
   const handleLocationSelect = (value: LocationOption | null) => {
     if (!value) return;
-    router.push(`/weather?lat=${value.lat}&lon=${value.lon}`);
+    router.push(`/forecast?lat=${value.lat}&lon=${value.lon}`);
   };
 
   const locateUserFunc = () => {
@@ -27,7 +27,7 @@ function useLocationSearch() {
       (position) => {
         const { latitude, longitude } = position.coords;
 
-        router.push(`/weather?lat=${latitude}&lon=${longitude}`);
+        router.push(`/forecast?lat=${latitude}&lon=${longitude}`);
       },
       (error) => {
         console.error(error);

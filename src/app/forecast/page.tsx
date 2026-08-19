@@ -1,6 +1,6 @@
 "use client";
 
-import { WeatherShell } from "@/components/layout/WeatherShell";
+import { WeatherShell } from "@/components/layout/WeatherAppShell";
 import { CurrentConditionsCard } from "@/components/features/forecast/CurrentConditionsCard";
 import { DailyForecastCard } from "@/components/features/forecast/DailyForecastCard";
 import { HourlyTemperatureChart } from "@/components/features/forecast/HourlyTemperatureChart";
@@ -12,7 +12,7 @@ import { UtilityBar } from "@/components/layout/UtilityBar";
 import { ForecastError } from "@/components/features/forecast/ForecastError";
 import { ForecastSkeleton } from "@/components/features/forecast/ForecastSkeleton";
 
-export function ForecastResult() {
+export default function ForecastResult() {
   const { forecast, isPending, isError, refetch } = useForecast();
   const theme = useDayNightTheme(forecast);
 

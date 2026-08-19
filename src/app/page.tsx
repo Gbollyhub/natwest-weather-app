@@ -1,10 +1,10 @@
-import { WeatherShell } from "@/components/layout/WeatherShell";
-import { WeatherLandingHero } from "@/components/features/landing/WeatherLandingPageHero";
+import { WeatherShell } from "@/components/layout/WeatherAppShell";
+import { LandingPageHero } from "@/components/features/landing/LandingPageHero";
 
-export function WeatherLanding() {
+export default function WeatherLanding() {
   return (
     <WeatherShell>
-      <WeatherLandingHero />
+      <LandingPageHero />
     </WeatherShell>
   );
 }

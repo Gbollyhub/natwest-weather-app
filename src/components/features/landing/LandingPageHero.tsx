@@ -5,7 +5,7 @@ import { GREETINGS } from "@/config/constants";
 import { GreetingSection } from "./GreetingSection";
 import { LocationSearchForm } from "./LocationSearchForm";
 
-export function WeatherLandingHero() {
+export function LandingPageHero() {
   const [greeting] = useState(
     () => GREETINGS[Math.floor(Math.random() * GREETINGS.length)],
   );

@@ -2,7 +2,7 @@
 
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useState, type ReactNode } from "react";
-import { TemperatureUnitProvider } from "@/context/temperatureUnitContext";
+import { TemperatureUnitProvider } from "@/context/TemperatureUnitContext";
 
 export function Providers({ children }: { children: ReactNode }) {
   const [queryClient] = useState(() => new QueryClient());
