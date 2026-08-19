@@ -10,7 +10,7 @@ function useForecast() {
   const lat = searchParams.get("lat");
   const lon = searchParams.get("lon");
 
-  const { data, isPending, isError } = useQuery({
+  const { data, isPending, isError, refetch } = useQuery({
     queryKey: ["forecast", lat, lon],
     queryFn: () => getForecast(lat!, lon!),
     enabled: Boolean(lat && lon),
@@ -25,7 +25,8 @@ function useForecast() {
     forecast: data,
     isPending,
     isError,
-    todayHourlyForcast
+    todayHourlyForcast,
+    refetch,
   };
 }
 

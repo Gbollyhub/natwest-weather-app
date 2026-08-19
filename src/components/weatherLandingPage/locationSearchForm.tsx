@@ -23,11 +23,13 @@ function formatLocationLabel(item: LocationOption): string {
 export function LocationSearchForm() {
   const {
     location,
-    setLocation,
     searchValue,
     setSearchValue,
     suggestions,
     handleLocationSelect,
+    isError,
+    isPending,
+    debouncedLocationSearch,
   } = useLocationSearch();
 
   return (
@@ -57,7 +59,13 @@ export function LocationSearchForm() {
           />
         </ComboboxInputGroup>
         <ComboboxPopup>
-          <ComboboxEmpty>No matching locations.</ComboboxEmpty>
+          <ComboboxEmpty>
+            {isError
+              ? "Unable to search locations."
+              : isPending && debouncedLocationSearch.length >= 2
+                ? "Searching..."
+                : "No matching locations."}
+          </ComboboxEmpty>
           <ComboboxList>
             {(item: LocationOption) => (
               <ComboboxItem key={item.id} value={item}>

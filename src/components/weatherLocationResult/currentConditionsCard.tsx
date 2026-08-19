@@ -1,11 +1,14 @@
 "use client";
 
 import { formatDateTime } from "@/lib/date";
+import { formatTemperature } from "@/lib/temperature";
+import { useTemperatureUnit } from "@/context/temperatureUnitContext";
 import type { CurrentConditions } from "./types";
 import useForecast from "@/hooks/useForecast";
 
 export function CurrentConditionsCard() {
   const { forecast } = useForecast();
+  const { unit } = useTemperatureUnit();
 
   if (!forecast) return null;
   return (
@@ -24,7 +27,7 @@ export function CurrentConditionsCard() {
         As of {formatDateTime(forecast.current.last_updated)}
       </p>
       <p className="mt-1.5 bg-gradient-to-b from-weather-amber-lift to-[#eda92f] bg-clip-text text-[52px] leading-[1.15] font-semibold text-transparent">
-        {Math.round(forecast.current.temp_c)}°
+        {formatTemperature(forecast.current.temp_c, unit)}
       </p>
 
       <div className="mt-[22px] mb-[26px] h-px w-4/5 bg-weather-hairline" />
@@ -40,7 +43,7 @@ export function CurrentConditionsCard() {
         </div>
         <div>
           <p className="text-[19px] font-semibold tracking-[-0.01em]">
-            {Math.round(forecast.current.feelslike_c)}°
+            {formatTemperature(forecast.current.feelslike_c, unit)}
           </p>
           <p className="mt-[9px] text-xs text-weather-muted">Feels like</p>
         </div>

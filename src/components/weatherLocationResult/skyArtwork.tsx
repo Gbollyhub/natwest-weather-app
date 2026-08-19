@@ -16,10 +16,6 @@ export function SkyArtwork({ className }: { className?: string }) {
             <stop offset="52%" stopColor="#fbc23f" />
             <stop offset="100%" stopColor="#ef9c17" />
           </radialGradient>
-          <linearGradient id="weatherLobe" x1="0.2" y1="0" x2="0.8" y2="1">
-            <stop offset="0%" stopColor="#ffd96a" />
-            <stop offset="100%" stopColor="#f5ab26" />
-          </linearGradient>
           <linearGradient id="weatherCloud" x1="0.15" y1="0" x2="0.75" y2="1">
             <stop offset="0%" stopColor="#ffffff" />
             <stop offset="62%" stopColor="#fbfaf7" />
@@ -34,7 +30,6 @@ export function SkyArtwork({ className }: { className?: string }) {
         </defs>
 
         <circle cx="424" cy="168" r="118" fill="url(#weatherSun)" />
-        <ellipse cx="300" cy="392" rx="176" ry="34" fill="#e4dbc9" opacity="0.35" filter="url(#weatherSoft)" />
 
         <g filter="url(#weatherShadow)">
           <path

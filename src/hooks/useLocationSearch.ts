@@ -31,6 +31,7 @@ function useLocationSearch() {
     isPending,
     isError,
     handleLocationSelect,
+    debouncedLocationSearch,
   };
 }
 
