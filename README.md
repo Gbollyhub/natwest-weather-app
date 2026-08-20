@@ -6,9 +6,11 @@ You can search for a city or UK postcode, view current conditions and a 3-day fo
 
 Built with **Next.js 16, TypeScript, TanStack Query, Tailwind CSS and WeatherAPI.com**.
 
-Design Link: https://www.figma.com/design/58WPyC8YJ4xEQNXKJN8vBe/Natwest-Weather-App?node-id=0-1&t=hKf3znD5BjUP7uuO-1
+**Deployed on Vercel: https://natwest-weather-app.vercel.app/**
 
-Design Prototype: https://www.figma.com/proto/58WPyC8YJ4xEQNXKJN8vBe/Natwest-Weather-App?node-id=1-2&t=7ezkRzZr2Rha81cH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2
+Figma Design Link: https://www.figma.com/design/58WPyC8YJ4xEQNXKJN8vBe/Natwest-Weather-App?node-id=0-1&t=hKf3znD5BjUP7uuO-1
+
+Figma Design Prototype: https://www.figma.com/proto/58WPyC8YJ4xEQNXKJN8vBe/Natwest-Weather-App?node-id=1-2&t=7ezkRzZr2Rha81cH-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=1%3A2
 
 ## Getting started
 
