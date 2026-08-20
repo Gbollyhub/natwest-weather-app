@@ -24,7 +24,7 @@ export default function TemperatureUnitToggle() {
           className={cn(
             "cursor-pointer rounded-full px-2.5 py-1 transition-colors",
             unit === option
-              ? "bg-weather-amber text-white"
+              ? "bg-weather-amber text-weather-ink"
               : "text-weather-ink-2 hover:text-weather-amber-dark"
           )}
         >

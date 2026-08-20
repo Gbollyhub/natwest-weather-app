@@ -74,9 +74,9 @@ I chose this approach so that most tests stay fast and focused, while the more i
 
 ## A few technical decisions
 
-### Next.js instead of plain React
+### Next.js instead of plain React.js
 
-I went with Next.js mainly because the WeatherAPI key has to stay off the client, and Next.js gives me a server (via API routes) to hide it behind in the same project, no separate backend to stand up and deploy. It also meant file-based routing for the two screens here and a single, simple Vercel deploy. The trade-off is real added complexity, the server/client component boundary and a stricter build step, one build failure only ever showed up in next build, never in next dev. For a pure client-side app with no secret to hide, I'd lean towards Vite instead.
+I went with Next.js mainly because the WeatherAPI key has to stay off the client, and Next.js gives me a server (via API routes) to hide it behind in the same project, no separate backend to stand up and deploy. It also meant file-based routing for the two screens here and a single, simple Vercel deploy. The trade-off is real added complexity, the server/client component boundary and a stricter build step, one build failure only ever showed up in next build, never in next dev. For a pure client-side app with no secret to hide, I'd lean towards React.js instead.
 
 ### WeatherAPI.com
 

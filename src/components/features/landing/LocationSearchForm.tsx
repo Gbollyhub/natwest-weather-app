@@ -86,7 +86,7 @@ export function LocationSearchForm({ className }: { className?: string }) {
         <Button
           onClick={locateUserFunc}
           type="button"
-          className="h-auto shrink-0 gap-2 rounded-md bg-weather-amber px-6 py-3 text-white hover:bg-weather-amber/90"
+          className="h-auto shrink-0 gap-2 rounded-md bg-weather-amber px-6 py-3 text-weather-ink hover:bg-weather-amber/90"
         >
           <LocateFixed className="size-4" aria-hidden="true" />
           Use my location
