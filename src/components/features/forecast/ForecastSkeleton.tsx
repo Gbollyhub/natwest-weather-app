@@ -51,8 +51,8 @@ export function ForecastSkeleton() {
           </section>
         </div>
 
-        <div className="hidden contents lg:flex lg:w-full lg:flex-col lg:flex-[0_1_394px]">
-          <div className="order-1 mx-0 mb-2 max-w-[300px] lg:order-none lg:mt-[5px] lg:mr-[-70px] lg:mb-0 lg:ml-[-110px] lg:max-w-none">
+        <div className="hidden contents lg:flex lg:w-full lg:flex-col lg:flex-[0_1_400px]">
+          <div className="order-1 mx-0 mb-2 lg:order-none lg:mt-[5px] lg:max-w-none">
             <Bone className="aspect-[620/470] w-full rounded-full" />
           </div>
         </div>
