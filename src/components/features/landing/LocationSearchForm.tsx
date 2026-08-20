@@ -51,6 +51,7 @@ export function LocationSearchForm({ className }: { className?: string }) {
           inputValue={searchValue}
           onInputValueChange={setSearchValue}
           itemToStringLabel={formatLocationLabel}
+          filter={null}
         >
           <label htmlFor={LOCATION_INPUT_ID} className="sr-only">
             Search for a city or country
