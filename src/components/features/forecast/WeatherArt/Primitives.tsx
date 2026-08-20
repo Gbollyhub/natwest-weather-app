@@ -1,7 +1,5 @@
 const CLOUD_PATH =
   "M118 330c-38 0-66-26-66-60 0-31 23-56 54-60 6-45 45-79 92-79 34 0 64 18 80 45 10-6 21-9 34-9 34 0 62 26 65 59 30 5 52 30 52 60 0 34-28 60-63 60H118Z";
-const LOBE_PATH =
-  "M369 226c26 0 48 17 55 41 3 10 4 21 2 32-5 20-22 31-45 31-33 0-60-26-60-58s21-46 48-46Z";
 
 type CloudVariant = "light" | "dark" | "neutral";
 
@@ -37,7 +35,7 @@ export function Celestial({
 }
 
 export function CloudShape({ variant = "light" }: { variant?: CloudVariant }) {
-  const { cloud: cloudId, lobe: lobeId } = CLOUD_GRADIENTS[variant];
+  const { cloud: cloudId } = CLOUD_GRADIENTS[variant];
 
   return (
     <g filter="url(#weatherShadow)">
