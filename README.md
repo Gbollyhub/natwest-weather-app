@@ -118,19 +118,9 @@ The selected unit is stored in a small React context and components simply rende
 
 I chose **Vitest** with React Testing Library rather than Jest because it provides a lightweight setup with native ESM and works well with the existing TypeScript/Vite-style tooling.
 
-**MSW** is used for API mocking in integration tests. Rather than mocking the weather hook itself, the tests intercept the network request so the real query, loading and error behaviour are exercised.
+**Mock Service Worker (MSW)** is used for API mocking in integration tests. Rather than mocking the weather hook itself, the tests intercept the network request so the real query, loading and error behaviour are exercised.
 
 I haven't added a large number of tests just for coverage. The focus is on testing actual behaviour and places where bugs are likely to occur.
-
-## Known trade-offs
-
-A few things were intentionally kept out of scope for this exercise:
-
-* The forecast is limited to 3 days by the WeatherAPI free plan.
-* E2E tests are not yet part of the main test suite.
-* A full visual regression suite isn't included.
-* The API layer could have more detailed error handling for provider-specific failures.
-* Redux was deliberately not used, this app's state doesn't need it, but I'd reach for it differently if the app grew and needed real client-side coordination.
 
 ## What I'd improve next
 
