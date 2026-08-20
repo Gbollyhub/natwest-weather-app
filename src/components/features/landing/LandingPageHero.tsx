@@ -11,7 +11,8 @@ export function LandingPageHero() {
   );
 
   return (
-    <section
+    <main
+      id="main"
       aria-labelledby="weather-greeting-heading"
       className="flex flex-1 flex-col items-center justify-center gap-8 py-16 text-center"
     >
@@ -20,6 +21,6 @@ export function LandingPageHero() {
         headingId="weather-greeting-heading"
       />
       <LocationSearchForm />
-    </section>
+    </main>
   );
 }

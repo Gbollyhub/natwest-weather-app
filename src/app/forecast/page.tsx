@@ -17,10 +17,12 @@ export default function ForecastResult() {
   const theme = useDayNightTheme(forecast);
 
   return (
-    <WeatherAppShell theme={theme}>
+    <WeatherAppShell theme={theme} currentNavItem="Forecast">
       <UtilityBar />
       {isError ? (
-        <ForecastError onRetry={() => refetch()} />
+        <main id="main" className="flex flex-1 flex-col">
+          <ForecastError onRetry={() => refetch()} />
+        </main>
       ) : isPending || !forecast ? (
         <ForecastSkeleton />
       ) : (

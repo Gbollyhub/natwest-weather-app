@@ -62,45 +62,49 @@ export function DailyForecastCard({ forecast }: Props) {
           {ranges.length}-day outlook
         </CardDescription>
       </CardHeader>
-      <CardContent className="flex flex-col gap-4">
-        {ranges.map(({ day, label, min, max }) => {
-          const offsetPercent = ((min - globalMin) / span) * 100;
-          const widthPercent = Math.max(((max - min) / span) * 100, 6);
+      <CardContent>
+        <ul className="flex flex-col gap-4">
+          {ranges.map(({ day, label, min, max }) => {
+            const offsetPercent = ((min - globalMin) / span) * 100;
+            const widthPercent = Math.max(((max - min) / span) * 100, 6);
 
-          return (
-            <div key={day.date} className="flex items-center gap-2 sm:gap-4">
-              <span className="w-9 shrink-0 text-sm font-medium text-weather-ink-2 sm:w-12">
-                {label}
-              </span>
+            return (
+              <li key={day.date} className="flex items-center gap-2 sm:gap-4">
+                <span className="w-9 shrink-0 text-sm font-medium text-weather-ink-2 sm:w-12">
+                  {label}
+                </span>
 
-              <Image
-                src={toAbsoluteIconUrl(day.day.condition.icon)}
-                alt={day.day.condition.text}
-                width={32}
-                height={32}
-                className="size-7 shrink-0 sm:size-8"
-              />
-
-              <span className="w-6 shrink-0 text-right text-sm text-weather-muted tabular-nums">
-                {min}°
-              </span>
-
-              <div className="relative h-1.5 min-w-0 flex-1 rounded-full bg-weather-hairline">
-                <div
-                  className="absolute inset-y-0 rounded-full bg-gradient-to-r from-weather-amber-lift to-weather-amber"
-                  style={{
-                    left: `${offsetPercent}%`,
-                    width: `${widthPercent}%`,
-                  }}
+                <Image
+                  src={toAbsoluteIconUrl(day.day.condition.icon)}
+                  alt={day.day.condition.text}
+                  width={32}
+                  height={32}
+                  className="size-7 shrink-0 sm:size-8"
                 />
-              </div>
 
-              <span className="w-6 shrink-0 text-sm font-semibold text-weather-ink tabular-nums">
-                {max}°
-              </span>
-            </div>
-          );
-        })}
+                <span className="w-6 shrink-0 text-right text-sm text-weather-muted tabular-nums">
+                  <span className="sr-only">Low </span>
+                  {min}°
+                </span>
+
+                <div className="relative h-1.5 min-w-0 flex-1 rounded-full bg-weather-hairline">
+                  <div
+                    className="absolute inset-y-0 rounded-full bg-gradient-to-r from-weather-amber-lift to-weather-amber"
+                    style={{
+                      left: `${offsetPercent}%`,
+                      width: `${widthPercent}%`,
+                    }}
+                  />
+                </div>
+
+                <span className="w-6 shrink-0 text-sm font-semibold text-weather-ink tabular-nums">
+                  <span className="sr-only">High </span>
+                  {max}°
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       </CardContent>
     </Card>
   );

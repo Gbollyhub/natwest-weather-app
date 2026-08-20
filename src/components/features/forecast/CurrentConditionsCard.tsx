@@ -29,6 +29,7 @@ export function CurrentConditionsCard({ location, current }: Props) {
       </p>
       <p className="mt-1.5 bg-gradient-to-b from-weather-amber-lift to-[#eda92f] bg-clip-text text-[52px] leading-[1.15] font-semibold text-transparent">
         {formatTemperature(current.temp_c, unit)}
+        <span className="sr-only"> {unit === "F" ? "Fahrenheit" : "Celsius"}</span>
       </p>
 
       <div className="mt-[22px] mb-[26px] h-px w-4/5 bg-weather-hairline" />
@@ -45,6 +46,7 @@ export function CurrentConditionsCard({ location, current }: Props) {
         <div>
           <p className="text-[19px] font-semibold tracking-[-0.01em]">
             {formatTemperature(current.feelslike_c, unit)}
+            <span className="sr-only"> {unit === "F" ? "Fahrenheit" : "Celsius"}</span>
           </p>
           <p className="mt-[9px] text-xs text-weather-muted">Feels like</p>
         </div>

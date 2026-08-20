@@ -3,12 +3,13 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { cn } from "@/lib/utils";
 
 function Bone({ className }: { className?: string }) {
-  return <Skeleton className={cn("bg-weather-ink/10", className)} />;
+  return <Skeleton className={cn("bg-weather-ink/10", className)} aria-hidden="true" />;
 }
 
 export function ForecastSkeleton() {
   return (
-    <>
+    <div role="status" aria-live="polite" aria-label="Loading weather forecast">
+      <span className="sr-only">Loading weather forecast…</span>
       <main
         id="main"
         className="mt-[42px] flex flex-col gap-12 lg:flex-row lg:items-stretch lg:justify-between lg:gap-[clamp(40px,5vw,366px)]"
@@ -88,6 +89,6 @@ export function ForecastSkeleton() {
           </CardContent>
         </Card>
       </div>
-    </>
+    </div>
   );
 }

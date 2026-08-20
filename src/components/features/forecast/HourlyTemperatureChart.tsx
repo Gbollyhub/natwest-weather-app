@@ -46,6 +46,9 @@ export function HourlyTemperatureChart({ forecast }: Props) {
     ),
   }));
 
+  const minTemp = Math.min(...chartData.map((entry) => entry.temp));
+  const maxTemp = Math.max(...chartData.map((entry) => entry.temp));
+
   return (
     <Card className="bg-card/10">
       <CardHeader>
@@ -55,6 +58,26 @@ export function HourlyTemperatureChart({ forecast }: Props) {
         </CardDescription>
       </CardHeader>
       <CardContent>
+        <table className="sr-only">
+          <caption>
+            Hourly temperature today, ranging from {minTemp}° to {maxTemp}°
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col">Time</th>
+              <th scope="col">Temperature</th>
+            </tr>
+          </thead>
+          <tbody>
+            {chartData.map((entry) => (
+              <tr key={entry.hour}>
+                <td>{entry.hour}</td>
+                <td>{entry.temp}°</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <div aria-hidden="true">
         <ChartContainer
           config={chartConfig}
           className="aspect-auto h-[200px] w-full sm:h-[250px] lg:h-[300px]"
@@ -88,6 +111,7 @@ export function HourlyTemperatureChart({ forecast }: Props) {
             />
           </LineChart>
         </ChartContainer>
+        </div>
       </CardContent>
     </Card>
   );
