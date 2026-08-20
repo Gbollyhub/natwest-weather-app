@@ -1,4 +1,5 @@
 import api from "@/lib/api";
+import { AxiosError } from "axios";
 import { NextResponse } from "next/server";
 
 const API_KEY = process.env.NEXT_WEATHER_API_KEY;
@@ -26,7 +27,16 @@ export async function GET(request: Request) {
     });
 
     return NextResponse.json(data);
-  } catch {
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      console.error(
+        "[/api/forecast] WeatherAPI request failed:",
+        error.response?.status,
+        error.response?.data?.error ?? error.message,
+      );
+    } else {
+      console.error("[/api/forecast] Unexpected error:", error);
+    }
     return NextResponse.json(
       { error: "Unable to fetch weather data" },
       { status: 502 },

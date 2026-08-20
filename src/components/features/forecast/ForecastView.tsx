@@ -13,7 +13,7 @@ import { ForecastError } from "@/components/features/forecast/ForecastError";
 import { ForecastSkeleton } from "@/components/features/forecast/ForecastSkeleton";
 
 export default function ForecastView() {
-  const { forecast, isPending, isError, refetch } = useForecast();
+  const { forecast, isPending, isError, refetch, error } = useForecast();
   const theme = useDayNightTheme(forecast);
 
   return (

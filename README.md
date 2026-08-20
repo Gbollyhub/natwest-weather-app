@@ -128,9 +128,8 @@ Given more time, I'd prioritise:
 
 1. Add Playwright E2E flow covering search → forecast → error/retry.
 2. Add automated accessibility checks with axe.
-3. Add runtime validation for WeatherAPI responses.
-4. Improve API error handling so different provider failures produce more useful messages.
-5. Add visual regression tests for the main weather states.
+3. Improve API error handling so different provider failures produce more useful messages.
+4. Add visual regression tests for the main weather states.
 
 ## License
 
