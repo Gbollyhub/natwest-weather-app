@@ -2,7 +2,7 @@
 
 import { formatDateTime } from "@/lib/date";
 import { formatTemperature } from "@/lib/temperature";
-import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContextt";
 import { ForecastLocation, CurrentWeather } from "@/types";
 
 interface Props {

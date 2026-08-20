@@ -15,7 +15,7 @@ import {
   type ChartConfig,
 } from "@/components/ui/chart";
 import { celsiusToFahrenheit } from "@/lib/temperature";
-import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContextt";
 import { ForecastData } from "@/types";
 
 interface Props {
