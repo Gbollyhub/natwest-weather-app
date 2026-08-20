@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { classifyCondition, type SceneKey } from "./ClassifyCondition";
+import { classifyCondition, type SceneKey } from "./classify-condition";
 
 describe("classifyCondition", () => {
   it("is case insensitive", () => {

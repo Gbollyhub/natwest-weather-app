@@ -1,4 +1,4 @@
-export type TemperatureUnit = "C" | "F";
+import { TemperatureUnit } from "@/types";
 
 export function celsiusToFahrenheit(celsius: number): number {
   return (celsius * 9) / 5 + 32;

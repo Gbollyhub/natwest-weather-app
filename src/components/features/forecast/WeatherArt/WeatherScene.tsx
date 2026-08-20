@@ -1,5 +1,5 @@
 import type { ComponentType } from "react";
-import { classifyCondition, type SceneKey } from "./ClassifyCondition";
+import { classifyCondition, type SceneKey } from "../../../../lib/classify-condition";
 import {
   ClearScene,
   CloudyScene,

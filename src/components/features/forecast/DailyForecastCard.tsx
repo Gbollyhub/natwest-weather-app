@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/card";
 import type { ForecastData, ForecastDay } from "@/types";
 import { celsiusToFahrenheit } from "@/lib/temperature";
-import { useTemperatureUnit } from "@/context/TemperatureUnitContextt";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 
 function getDayLabel(dateStr: string, index: number): string {
   if (index === 0) return "Today";

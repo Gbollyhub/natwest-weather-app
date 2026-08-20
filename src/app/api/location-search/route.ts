@@ -7,11 +7,25 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const searchValue = searchParams.get("searchValue");
 
-  const { data } = await api.get("/search.json", {
-    params: {
-      key: API_KEY,
-      q: searchValue,
-    },
-  });
-  return NextResponse.json(data);
+  if (!searchValue) {
+    return NextResponse.json(
+      { error: "SearchValue is required" },
+      { status: 400 },
+    );
+  }
+
+  try {
+    const { data } = await api.get("/search.json", {
+      params: {
+        key: API_KEY,
+        q: searchValue,
+      },
+    });
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json(
+      { error: "Unable to fetch weather data" },
+      { status: 502 },
+    );
+  }
 }

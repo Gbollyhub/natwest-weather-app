@@ -1,7 +1,7 @@
 "use client";
 
+import { TemperatureUnit } from "@/types";
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
-import type { TemperatureUnit } from "@/lib/temperature";
 
 interface TemperatureUnitContextValue {
   unit: TemperatureUnit;

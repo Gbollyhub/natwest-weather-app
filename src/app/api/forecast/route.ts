@@ -7,14 +7,29 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const location = searchParams.get("location");
 
-  const { data } = await api.get("/forecast.json", {
-    params: {
-      key: API_KEY,
-      q: location,
-      days: 3,
-      aqi: "no",
-      alerts: "no",
-    },
-  });
-  return NextResponse.json(data);
+  if (!location) {
+    return NextResponse.json(
+      { error: "Location is required" },
+      { status: 400 },
+    );
+  }
+
+  try {
+    const { data } = await api.get("/forecast.json", {
+      params: {
+        key: API_KEY,
+        q: location,
+        days: 3,
+        aqi: "no",
+        alerts: "no",
+      },
+    });
+
+    return NextResponse.json(data);
+  } catch {
+    return NextResponse.json(
+      { error: "Unable to fetch weather data" },
+      { status: 502 },
+    );
+  }
 }

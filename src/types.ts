@@ -94,3 +94,4 @@ export interface WeatherMetric {
   value: string;
 }
 
+export type TemperatureUnit = "C" | "F";

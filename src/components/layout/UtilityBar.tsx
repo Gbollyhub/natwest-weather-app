@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { LocationSearchForm } from "@/components/features/landing/LocationSearchForm";
-import { TemperatureUnitToggle } from "./TemperatureUnitToggle";
+import TemperatureUnitToggle from "./TemperatureUnitToggle";
 
 export function UtilityBar() {
   return (

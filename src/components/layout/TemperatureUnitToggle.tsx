@@ -1,12 +1,12 @@
 "use client";
 
-import { useTemperatureUnit } from "@/context/TemperatureUnitContextt";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 import { cn } from "@/lib/utils";
-import type { TemperatureUnit } from "@/lib/temperature";
+import { TemperatureUnit } from "@/types";
 
 const UNITS: TemperatureUnit[] = ["C", "F"];
 
-export function TemperatureUnitToggle() {
+export default function TemperatureUnitToggle() {
   const { unit, setUnit } = useTemperatureUnit();
 
   return (

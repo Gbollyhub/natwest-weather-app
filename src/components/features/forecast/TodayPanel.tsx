@@ -1,7 +1,7 @@
 import type { CurrentWeather, WeatherMetric } from "@/types";
 import { MetricsGrid } from "./MetricsGrid";
 import { formatTemperature } from "@/lib/temperature";
-import { useTemperatureUnit } from "@/context/TemperatureUnitContextt";
+import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 
 interface Props {
   current: CurrentWeather;
