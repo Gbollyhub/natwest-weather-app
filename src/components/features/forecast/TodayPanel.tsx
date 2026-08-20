@@ -1,6 +1,5 @@
 import type { CurrentWeather, WeatherMetric } from "@/types";
 import { MetricsGrid } from "./MetricsGrid";
-import useForecast from "@/hooks/useForecast";
 import { formatTemperature } from "@/lib/temperature";
 import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 

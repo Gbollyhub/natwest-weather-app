@@ -1,6 +1,6 @@
 "use client";
 
-import { WeatherShell } from "@/components/layout/WeatherAppShell";
+import { WeatherAppShell } from "@/components/layout/WeatherAppShell";
 import { CurrentConditionsCard } from "@/components/features/forecast/CurrentConditionsCard";
 import { DailyForecastCard } from "@/components/features/forecast/DailyForecastCard";
 import { HourlyTemperatureChart } from "@/components/features/forecast/HourlyTemperatureChart";
@@ -17,7 +17,7 @@ export default function ForecastResult() {
   const theme = useDayNightTheme(forecast);
 
   return (
-    <WeatherShell theme={theme}>
+    <WeatherAppShell theme={theme}>
       <UtilityBar />
       {isError ? (
         <ForecastError onRetry={() => refetch()} />
@@ -55,6 +55,6 @@ export default function ForecastResult() {
           </div>
         </>
       )}
-    </WeatherShell>
+    </WeatherAppShell>
   );
 }

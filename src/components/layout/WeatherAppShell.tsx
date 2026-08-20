@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 import type { DayNightTheme } from "@/hooks/useDayNightTheme";
 import { SiteHeader } from "./SiteHeader";
 
-interface WeatherShellProps {
+interface WeatherAppShellProps {
   theme?: DayNightTheme;
   children: ReactNode;
 }
 
-export function WeatherShell({ theme = "day", children }: WeatherShellProps) {
+export function WeatherAppShell({ theme = "day", children }: WeatherAppShellProps) {
   const isNight = theme === "night";
 
   return (
