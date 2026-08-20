@@ -1,9 +1,7 @@
 "use client";
 
 import { useMemo } from "react";
-import type { Forecast } from "@/types";
-
-export type DayNightTheme = "day" | "night";
+import type { DayNightTheme, Forecast } from "@/types";
 
 function useDayNightTheme(forecast: Forecast | undefined): DayNightTheme {
   return useMemo(() => {

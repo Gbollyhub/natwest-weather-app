@@ -1,5 +1,7 @@
-export type SceneKey = "clear" | "partly-cloudy" | "cloudy" | "rain" | "thunderstorm" | "snow" | "fog";
+import { SceneKey } from "@/types";
 
+// classifyCondition takes a weather condition text and returns a SceneKey, 
+// If no keywords are found, it defaults to returning "cloudy".
 export function classifyCondition(conditionText: string): SceneKey {
   const value = conditionText.toLowerCase();
 

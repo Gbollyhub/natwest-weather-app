@@ -1,8 +1,8 @@
 import type { ReactNode } from "react";
 import { NAV_ITEMS } from "@/config/constants";
 import { cn } from "@/lib/utils";
-import type { DayNightTheme } from "@/hooks/useDayNightTheme";
 import { SiteHeader } from "./SiteHeader";
+import { DayNightTheme } from "@/types";
 
 interface WeatherAppShellProps {
   theme?: DayNightTheme;

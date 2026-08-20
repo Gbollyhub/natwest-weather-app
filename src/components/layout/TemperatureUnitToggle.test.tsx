@@ -38,4 +38,25 @@ describe("TemperatureUnitToggle", () => {
       "false",
     );
   });
+
+  it("allows changing temperature unit with keyboard", async () => {
+    const user = userEvent.setup();
+
+    renderWithProviders(<TemperatureUnitToggle />);
+
+    await user.tab();
+
+    expect(screen.getByRole("button", { name: "°C" })).toHaveFocus();
+
+    await user.tab();
+
+    expect(screen.getByRole("button", { name: "°F" })).toHaveFocus();
+
+    await user.keyboard("{Enter}");
+
+    expect(screen.getByRole("button", { name: "°F" })).toHaveAttribute(
+      "aria-pressed",
+      "true",
+    );
+  });
 });

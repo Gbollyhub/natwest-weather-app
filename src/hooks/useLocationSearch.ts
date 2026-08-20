@@ -14,6 +14,7 @@ function useLocationSearch() {
   const [location, setLocation] = useState<LocationOption | null>(null);
   const [locateError, setLocateError] = useState<string | null>(null);
 
+  // Clear locateError after a few seconds
   useEffect(() => {
     if (!locateError) return;
 
@@ -21,17 +22,20 @@ function useLocationSearch() {
     return () => clearTimeout(timer);
   }, [locateError]);
 
+  // useQuery to fetch location suggestions based on the debounced search value.
   const { data, isPending, isError } = useQuery({
     queryKey: ["location-search", debouncedLocationSearch],
     queryFn: () => searchLocation(debouncedLocationSearch),
     enabled: debouncedLocationSearch.length >= 2,
   });
 
+  // handleLocationSelect navigates to the forecast page with the selected location's latitude and longitude.
   const handleLocationSelect = (value: LocationOption | null) => {
     if (!value) return;
     router.push(`/forecast?lat=${value.lat}&lon=${value.lon}`);
   };
 
+  // locateUserFunc attempts to get the user's current location using the Geolocation API.
   const locateUserFunc = () => {
     setLocateError(null);
 

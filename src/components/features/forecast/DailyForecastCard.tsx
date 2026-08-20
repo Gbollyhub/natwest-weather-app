@@ -1,7 +1,6 @@
 "use client";
 
 import Image from "next/image";
-
 import {
   Card,
   CardContent,
@@ -24,12 +23,14 @@ interface Props {
   forecast: ForecastData;
 }
 
+// getDayLabel returns a label for the day based on the date string and index.
 function getDayLabel(dateStr: string, index: number): string {
   if (index === 0) return "Today";
   const date = new Date(`${dateStr}T12:00:00`);
   return date.toLocaleDateString("en-US", { weekday: "short" });
 }
 
+// toAbsoluteIconUrl converts a relative icon URL to an absolute URL.
 function toAbsoluteIconUrl(icon: string): string {
   return icon.startsWith("//") ? `https:${icon}` : icon;
 }

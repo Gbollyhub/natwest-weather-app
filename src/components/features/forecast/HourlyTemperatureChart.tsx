@@ -35,10 +35,12 @@ function formatHourLabel(time: string): string {
 
 export function HourlyTemperatureChart({ forecast }: Props) {
   const { unit } = useTemperatureUnit();
-
   const today = forecast.forecastday[0];
+  
   if (!today) return null;
 
+  // chartData maps the hourly forecast data for today into a 
+  // format suitable for the LineChart component.
   const chartData = today.hour.map((entry) => ({
     hour: formatHourLabel(entry.time),
     temp: Math.round(

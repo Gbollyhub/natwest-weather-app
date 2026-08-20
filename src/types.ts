@@ -95,3 +95,8 @@ export interface WeatherMetric {
 }
 
 export type TemperatureUnit = "C" | "F";
+
+export type DayNightTheme = "day" | "night";
+
+export type SceneKey = "clear" | "partly-cloudy" | "cloudy" | "rain" | "thunderstorm" | "snow" | "fog";
+

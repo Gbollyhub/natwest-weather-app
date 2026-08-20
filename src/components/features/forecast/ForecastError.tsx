@@ -1,7 +1,6 @@
 "use client";
 
 import { CloudAlert, RefreshCw } from "lucide-react";
-
 import { Button } from "@/components/ui/button";
 
 export function ForecastError({ onRetry }: { onRetry: () => void }) {

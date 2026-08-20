@@ -10,6 +10,7 @@ function useForecast() {
   const lat = searchParams.get("lat");
   const lon = searchParams.get("lon");
 
+  // useQuery to fetch forecast data based on the latitude and longitude from the search parameters.
   const { data, isPending, isError, refetch } = useQuery({
     queryKey: ["forecast", lat, lon],
     queryFn: () => getForecast(lat!, lon!),
@@ -18,6 +19,7 @@ function useForecast() {
     placeholderData: keepPreviousData,
   });
 
+  // todayHourlyForcast finds the forecast data for today from the fetched forecast data.
   const todayHourlyForcast = data?.forecast.forecastday.find(x => {
     return isToday(new Date(x.date));
   })
