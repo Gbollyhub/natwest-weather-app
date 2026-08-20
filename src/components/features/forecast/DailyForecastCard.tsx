@@ -13,16 +13,6 @@ import type { ForecastData, ForecastDay } from "@/types";
 import { celsiusToFahrenheit } from "@/lib/temperature";
 import { useTemperatureUnit } from "@/context/TemperatureUnitContext";
 
-function getDayLabel(dateStr: string, index: number): string {
-  if (index === 0) return "Today";
-  const date = new Date(`${dateStr}T12:00:00`);
-  return date.toLocaleDateString("en-US", { weekday: "short" });
-}
-
-function toAbsoluteIconUrl(icon: string): string {
-  return icon.startsWith("//") ? `https:${icon}` : icon;
-}
-
 interface DayRange {
   day: ForecastDay;
   label: string;
@@ -32,6 +22,16 @@ interface DayRange {
 
 interface Props {
   forecast: ForecastData;
+}
+
+function getDayLabel(dateStr: string, index: number): string {
+  if (index === 0) return "Today";
+  const date = new Date(`${dateStr}T12:00:00`);
+  return date.toLocaleDateString("en-US", { weekday: "short" });
+}
+
+function toAbsoluteIconUrl(icon: string): string {
+  return icon.startsWith("//") ? `https:${icon}` : icon;
 }
 
 export function DailyForecastCard({ forecast }: Props) {
