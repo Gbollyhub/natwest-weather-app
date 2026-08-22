@@ -9,7 +9,7 @@ export function ForecastError({ onRetry }: { onRetry: () => void }) {
       <CloudAlert className="size-12 text-weather-amber" aria-hidden="true" />
 
       <div>
-        <h1 className="text-[22px] font-semibold tracking-[-0.01em]">Couldn&rsquo;t load the forecast</h1>
+        <h1 className="text-[22px] font-semibold tracking-[-0.01em]">Could not load the forecast</h1>
         <p className="mt-2 text-sm text-weather-muted">
           Something went wrong while fetching the weather for this location.
         </p>
