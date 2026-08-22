@@ -55,6 +55,7 @@ The project uses **Vitest, React Testing Library and MSW**.
 
 ```bash
 npm test
+npm test:e2e
 ```
 
 Other useful commands:
@@ -69,6 +70,7 @@ The tests are split into:
 * **Unit tests** – utilities such as temperature conversion and date formatting.
 * **Component tests** – UI components such as the forecast cards, metrics and temperature toggle.
 * **Integration tests** – the search flow, including the debounced search, API response and URL update.
+* **E2E tests** – the search to forecast flow, including error state.
 
 I chose this approach so that most tests stay fast and focused, while the more important user flow is tested with realistic network behaviour.
 
@@ -108,17 +110,13 @@ TanStack Query is used for server state such as weather data and location search
 
 It provides caching, loading/error states and request deduplication without introducing a larger client-side state management solution.
 
-### Temperature units
-
-WeatherAPI returns both Celsius and Fahrenheit in the same response, so changing the unit doesn't require another API request.
-
-The selected unit is stored in a small React context and components simply render the appropriate value.
-
 ## Testing decisions
 
 I chose **Vitest** with React Testing Library rather than Jest because it provides a lightweight setup with native ESM and works well with the existing TypeScript/Vite-style tooling.
 
 **Mock Service Worker (MSW)** is used for API mocking in integration tests. Rather than mocking the weather hook itself, the tests intercept the network request so the real query, loading and error behaviour are exercised.
+
+**Playwright** is a strong choice for E2E because it gives you a good balance of real browser testing, reliability, speed, and developer experience.
 
 I haven't added a large number of tests just for coverage. The focus is on testing actual behaviour and places where bugs are likely to occur.
 
@@ -126,10 +124,9 @@ I haven't added a large number of tests just for coverage. The focus is on testi
 
 Given more time, I'd prioritise:
 
-1. Add Playwright E2E flow covering search → forecast → error/retry.
-2. Add automated accessibility checks with axe.
-3. Improve API error handling so different provider failures produce more useful messages.
-4. Add visual regression tests for the main weather states.
+1. Add automated accessibility checks with axe.
+2. Improve API error handling so different provider failures produce more useful messages.
+3. Add visual regression tests for the main weather states.
 
 ## License
 

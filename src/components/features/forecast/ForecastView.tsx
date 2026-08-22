@@ -39,7 +39,7 @@ export default function ForecastView() {
               <TodayPanel current={forecast.current} />
             </div>
 
-            <div className="hidden contents lg:flex lg:w-full lg:flex-col lg:flex-[0_1_394px]">
+            <div className="hidden contents lg:flex w-full lg:flex-col lg:flex-[0_1_250px] xl:flex-[0_1_394px]">
               <SkyArtwork
                 className="order-1 lg:order-none"
                 conditionText={forecast.current.condition.text}
